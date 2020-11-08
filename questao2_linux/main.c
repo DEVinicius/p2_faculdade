@@ -199,9 +199,9 @@ int main(void)
 
                 Faz a verificacao se algum numero foi digitado,
                 A verificacao é feita de acordo com a tabela ASCII,
-                Os valores dos numeros em caracter vao da sequencia 48 até 57.
+                Os valores dos numeros e caracteres especiais em caracter vao da sequencia 33 até 64 e da 91 até a 96.
             */
-            if(frase[i] >= 48 && frase[i] <= 57)
+            if(frase[i] >= 33 && frase[i] <= 64 || frase[i] >= 91 && frase[i] <= 96)
             {
                 contador_letras[26] ++;
             }
@@ -212,7 +212,7 @@ int main(void)
             EXIBIÇÃO DA CONTAGEM POR LETRA E NUMERO
 
             Nessa seçao é exibido todos os resultados de todas as contagens feitas
-            Os resultados estão dispostos em ordem alfabética com a quantidade de numeros no final
+            Os resultados estão dispostos em ordem alfabética com a quantidade de numeros e caracteres especiais no final
         */
         printf("Letra\tQuantidade\n");
         printf("A\t%d\n",contador_letras[0]);
@@ -241,7 +241,7 @@ int main(void)
         printf("X\t%d\n",contador_letras[23]);
         printf("Y\t%d\n",contador_letras[24]);
         printf("Z\t%d\n\n\n",contador_letras[25]);
-        printf("Números\t%d\n",contador_letras[26]);
+        printf("caracteres especiais\t%d\n",contador_letras[26]);
     }
     
 }
