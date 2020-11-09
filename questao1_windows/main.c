@@ -65,22 +65,22 @@ int main(){
 				do
 				{
 					printf("Digite o nome do funcionario: ");
-					flush_in(); 
-					fgets(dados[indice_vetor].nome, 49, stdin);
+					fflush(stdin); 
+					scanf("%[^\n]", dados[indice_vetor].nome);
 					
 					if(maiusculo(dados[indice_vetor].nome))
 					{
-						printf("\nTodas as letras sao maiusculas");
+						printf("\nTodas as letras sao maiusculas\n\n");
 						situacao_nome = 0;
 					}
 					else if(minusculo(dados[indice_vetor].nome))
 					{
-						printf("\nTodas as letras sao minusculas");
+						printf("\nTodas as letras sao minusculas\n\n");
 						situacao_nome = 0;
 					}
 					else
 					{
-						printf("\nDigite o nome so com letras maiusculas ou minusculas\n");
+						printf("\nDigite o nome so com letras maiusculas ou minusculas\n\n");
 					}
 					
 					

@@ -11,7 +11,9 @@ bool maiusculo(char * palavra)
     // tamanho da string
     int tamanho_palavra = strlen(palavra) - 1;
     int contador = 0;
-
+    if (tamanho_palavra == 0 ){
+    	return false;
+	}
     for(contador = 0; contador < tamanho_palavra; contador++)
     {
         if(!isupper(palavra[contador]))
@@ -34,7 +36,9 @@ bool minusculo(char * palavra)
     // tamanho da string
     int tamanho_palavra = strlen(palavra) - 1;
     int contador = 0;
-
+	if (tamanho_palavra == 0 ){
+    	return false;
+    }
     for(contador = 0; contador < tamanho_palavra; contador++)
     {
         if(!islower(palavra[contador]))
