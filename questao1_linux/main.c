@@ -119,15 +119,15 @@ int main(){
 					printf("\nDigite o CPF: ");
 					scanf("%s", dados[indice_vetor].cpf);
 
-					if(verificaCpf(dados[indice_vetor].cpf == false)){
+					if(verificaCpf(dados[indice_vetor].cpf ) == false){
 						printf("CPF Invalido.\nSo aceitamos numeros\nDigite novamente\n\n ");
 					}
 					else
 					{
-						print("CPF Aceito\n\n\n");
+						printf("CPF Aceito\n\n\n");
 					}
 					
-				}while(verificaCpf(dados[indice_vetor].cpf == false));
+				}while(verificaCpf(dados[indice_vetor].cpf) == false);
 				
 				/*FEATURE NÃO OBRIGATÓRIA
 
