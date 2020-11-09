@@ -1,6 +1,7 @@
 /*
     Questoes realizadas pelos alunos
-
+    * Lucas Lupoli Barbosa Ayoub - RA: 21443977
+    * Willian dos Santos Silva - RA:21427800
     * Vinícius Pereira de Oliveira - RA: 21504714
 */
 

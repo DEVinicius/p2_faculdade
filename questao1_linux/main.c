@@ -1,3 +1,11 @@
+/*
+    Questoes realizadas pelos alunos
+    * Lucas Lupoli Barbosa Ayoub - RA: 21443977
+    * Willian dos Santos Silva - RA:21427800
+    * Vinícius Pereira de Oliveira - RA: 21504714
+*/
+
+
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
@@ -5,8 +13,16 @@
 
 typedef struct func
 {
- int id;
+	/*
+        Declaração das variaveis, onde é declarado o vetor nome, utilizado para calcular o tamanho da string nome. Que
+        por sua vez, possui um número máximo de 50 caracteres.
+
+        A declaração da variavel id serve para numerar os usuarios cadastrados na lista.
+        Por último o contador_letras, que é um vetor de 26 espaços que vai contabilizar a quantidade de vezes que cada caracter, seja ele maiusculo ou minusculo aparece.
+    */
+ 
  char nome[50];
+ int id;
  long cpf;
  int dia;
  int mes;
@@ -23,10 +39,16 @@ void flush_in()
 }
 
 int main(){
+
  tFuncionario dados[5];
- int escolha_menu = 0, situacao_menu = 1, indice_vetor = 0, contador = 0, situacao_data = 1, situacao_nome = 1;
- //Leitura dos dados
- while(situacao_menu == 1){
+ 	int escolha_menu = 0, situacao_menu = 1, indice_vetor = 0, contador = 0, situacao_data = 1, situacao_nome = 1;
+	/*
+        FEATURE OBRIGATÓRIA
+
+        Essa feature vai criar um menu onde o usuario vai poder escolher uma das 3 opcoes disponiveis "inserir funcionarios" "exibir funcionarios" ou "sair do programa".
+        Caso o usuario nao escolha uma das opcoes disponiveis, o menu entrara em loop até que o usuario escolha uma das opcoes correta.
+    */
+	while(situacao_menu == 1){
  	printf("\ndigite: \n1 - inserir funcionarios \n2 - exibir funcionarios \n3 - sair do programa \nescolha uma opcao: ");
  	scanf("%d", &escolha_menu);
  	switch(escolha_menu){
@@ -34,20 +56,28 @@ int main(){
  			if(indice_vetor < 5){
  				dados[indice_vetor].id = indice_vetor +1;
 				
+				/*
+        		FEATURE OBRIGATÓRIA
+        		
+				Essa feature vai analisar se o nome do funcionário inserido contém somente letras maiúsculas ou
+				minúsculas e tambem sem acentuação gráfica, caracteres especial e espaço em branco.
+				E se os nomes digitados sao maiores do que 49 caracteres
+    			*/
 				do
 				{
 					printf("Digite o nome do funcionario: ");
 					flush_in(); 
-					fgets(dados[indice_vetor].nome, 49, stdin);
+					scanf("%[^\n]", dados[indice_vetor].nome);
+					// fgets(dados[indice_vetor].nome, 49, stdin);
 					
 					if(maiusculo(dados[indice_vetor].nome))
 					{
-						printf("\nTodas as letras sao maiusculas");
+						printf("\nTodas as letras estao corretas");
 						situacao_nome = 0;
 					}
 					else if(minusculo(dados[indice_vetor].nome))
 					{
-						printf("\nTodas as letras sao minusculas");
+						printf("\nTodas as letras estao corretas");
 						situacao_nome = 0;
 					}
 					else
@@ -57,13 +87,22 @@ int main(){
 					
 					
 				}while (situacao_nome == 1);
+				
+				/*FEATURE NÃO OBRIGATÓRIA
 
+                Essa feature faz a verificacao se o dado .dd tem um valor maior quem 100 ou ou menor que 0. 
+				Ja na parte dos numeros de telefone ele verifica se o dado .tel digitado
+				tem um valor menor que 900000000 ou maior 999999999.
+				Caso o usuario nao coloque um dado valido ira aparecer uma mensagem, "DD invalido / tel. invalido".
+				O sistema entrara em loop ate q o usuario digite um numero que esteja dentro dos parametros.
+				 
+				 */
+                
 				do{
 				 
-					printf("\nDigite seu telefone celular com DD: ");
-					scanf("%02d%09d", &dados[indice_vetor].dd, &dados[indice_vetor].tel);
-					//fflush(stdin);
-					flush_in(); 
+				printf("\nDigite seu telefone celular com DD (Sem parentesis e tracos): ");
+				scanf("%02d%09d", &dados[indice_vetor].dd, &dados[indice_vetor].tel);
+				flush_in();
 
 					if (dados[indice_vetor].dd > 100 || dados[indice_vetor].dd < 0 || dados[indice_vetor].tel < 900000000 || dados[indice_vetor].tel > 999999999)
 					{
@@ -71,14 +110,21 @@ int main(){
 						printf("%d\n", dados[indice_vetor].dd);
 						printf("%d", dados[indice_vetor].tel);
 					}
-				 }
-				 
-				 while(dados[indice_vetor].dd > 100 || dados[indice_vetor].dd < 0 || dados[indice_vetor].tel < 900000000 || dados[indice_vetor].tel > 999999999);
+				  }
+				        while(dados[indice_vetor].dd > 100 || dados[indice_vetor].dd < 0 || dados[indice_vetor].tel < 900000000 || dados[indice_vetor].tel > 999999999);
 				 				 
-				 printf("\nDigite o CPF: ");
-				 scanf("%li", &dados[indice_vetor].cpf);
+				printf("\nDigite o CPF: ");
+				scanf("%li", &dados[indice_vetor].cpf);
+				
+				/*FEATURE NÃO OBRIGATÓRIA
+
+                Essa feature verifica se a data de nascimento que o usuario digitou esteja correta.
+				Para isso o dado .ano tem que estar entre ou igual 1950 a 2020 assim validando o ano.
+				Tambem verifica se dado .mes esteja entre ou igual a 1 a 12 assim validando o mes.  
+                A feature tambem analisa se o mes que o usuario digitou tem 30 ou 31 dias, e se é ano bissexto com o mes 2 contendo 28 ou 29 dias.
+				*/
 				 do{ 
-			 		 printf("\nDigite a data de nascimento: ");
+			 	 printf("\nDigite a data de nascimento (sem barras, apenas numeros sem espacos): ");
 					 scanf("%02d%02d%04d", &dados[indice_vetor].dia, &dados[indice_vetor].mes, &dados[indice_vetor].ano);
 					 if(dados[indice_vetor].ano <= 2020 && dados[indice_vetor].ano >= 1950){
 						 	 if(dados[indice_vetor].mes > 0 && dados[indice_vetor].mes <= 12){
@@ -137,16 +183,16 @@ int main(){
  			
 			break;
 		case 2:
+		/*FEATURE DE EXIBIÇÃO
+			Seção que realizará todas as ex
+		*/
 			if(indice_vetor == 0){
 				printf("nao ha funcionarios cadastrados");
 			}
 			else{
+				printf("\nId\t\t\tNome\t\t\tTel.\t\t\tCPF\t\tData de nascimento\n");
 				for(contador = 0; contador < indice_vetor; contador ++){
-						 printf("\nID: %d\n", dados[contador].id);
-						 printf("\nNome: %s\n", dados[contador].nome);
-						 printf("\nTel. (%d) %d\n", dados[contador].dd, dados[contador].tel);
-						 printf("\nCPF: %li\n", dados[contador].cpf);
-						 printf("\nData de nascimento : %i/%i/%i\n\n\n\n", dados[contador].dia, dados[contador].mes, dados[contador].ano);
+					printf("\n%d\t\t%s\t\t(%d) %d\t\t %li\t\t\t %i/%i/%i\n", dados[contador].id, dados[contador].nome, dados[contador].dd, dados[contador].tel, dados[contador].cpf, dados[contador].dia, dados[contador].mes, dados[contador].ano);
 				}
 				
 			}
