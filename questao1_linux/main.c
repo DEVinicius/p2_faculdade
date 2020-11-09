@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <ctype.h>
+#include <stdbool.h>
 #include <stdlib.h>
 #include "funcoes.c"
 
@@ -23,7 +24,7 @@ typedef struct func
  
  char nome[50];
  int id;
- long cpf;
+ char cpf [20];
  int dia;
  int mes;
  int ano;
@@ -112,9 +113,21 @@ int main(){
 					}
 				  }
 				        while(dados[indice_vetor].dd > 100 || dados[indice_vetor].dd < 0 || dados[indice_vetor].tel < 900000000 || dados[indice_vetor].tel > 999999999);
-				 				 
-				printf("\nDigite o CPF: ");
-				scanf("%li", &dados[indice_vetor].cpf);
+
+
+				do{
+					printf("\nDigite o CPF: ");
+					scanf("%s", dados[indice_vetor].cpf);
+
+					if(verificaCpf(dados[indice_vetor].cpf == false)){
+						printf("CPF Invalido.\nSo aceitamos numeros\nDigite novamente\n\n ");
+					}
+					else
+					{
+						print("CPF Aceito\n\n\n");
+					}
+					
+				}while(verificaCpf(dados[indice_vetor].cpf == false));
 				
 				/*FEATURE NÃO OBRIGATÓRIA
 
@@ -185,7 +198,7 @@ int main(){
 		case 2:
 		/*FEATURE DE EXIBIÇÃO
 			Seção que realizará todas os dados dos 5 funcionarios cadastrados
-			
+
 		*/
 			if(indice_vetor == 0){
 				printf("nao ha funcionarios cadastrados");
@@ -193,7 +206,7 @@ int main(){
 			else{
 				printf("\nId\t\t\tNome\t\t\tTel.\t\t\tCPF\t\tData de nascimento\n");
 				for(contador = 0; contador < indice_vetor; contador ++){
-					printf("\n%d\t\t%s\t\t(%d) %d\t\t %li\t\t\t %i/%i/%i\n", dados[contador].id, dados[contador].nome, dados[contador].dd, dados[contador].tel, dados[contador].cpf, dados[contador].dia, dados[contador].mes, dados[contador].ano);
+					printf("\n%d\t\t%s\t\t(%d) %d\t\t %s\t\t\t %i/%i/%i\n", dados[contador].id, dados[contador].nome, dados[contador].dd, dados[contador].tel, dados[contador].cpf, dados[contador].dia, dados[contador].mes, dados[contador].ano);
 				}
 				
 			}

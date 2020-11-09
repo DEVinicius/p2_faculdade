@@ -11,7 +11,9 @@ bool maiusculo(char * palavra)
     // tamanho da string
     int tamanho_palavra = strlen(palavra) - 1;
     int contador = 0;
-
+    if (tamanho_palavra == 0 ){
+    	return false;
+	}
     for(contador = 0; contador < tamanho_palavra; contador++)
     {
         /*
@@ -43,7 +45,9 @@ bool minusculo(char * palavra)
     // tamanho da string
     int tamanho_palavra = strlen(palavra) - 1;
     int contador = 0;
-
+	if (tamanho_palavra == 0 ){
+    	return false;
+    }
     for(contador = 0; contador < tamanho_palavra; contador++)
     {
         /*
@@ -62,3 +66,17 @@ bool minusculo(char * palavra)
     }
     return true;
 }
+
+bool verificaCpf (char * cpf)
+{
+	int tamanho_cpf = strlen(cpf) - 1;
+	int contador = 0;
+	for(contador = 0; contador < tamanho_cpf; contador ++ ){
+		if(cpf[contador] < 48 || cpf[contador] > 97 ){
+			return false;
+		}	
+	}
+	return true;
+	
+}
+
