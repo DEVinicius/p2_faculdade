@@ -1,4 +1,4 @@
-# p2_faculdade
+# P2 Anhembi Morumbi
 
 ## Integrantes do Grupo
 * [Lucas Lupoli Barbosa Ayoub - RA: 21443977](https://github.com/xLAYOUBx)
