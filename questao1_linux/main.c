@@ -184,7 +184,8 @@ int main(){
 			break;
 		case 2:
 		/*FEATURE DE EXIBIÇÃO
-			Seção que realizará todas as ex
+			Seção que realizará todas os dados dos 5 funcionarios cadastrados
+			
 		*/
 			if(indice_vetor == 0){
 				printf("nao ha funcionarios cadastrados");
