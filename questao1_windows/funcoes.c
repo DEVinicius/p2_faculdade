@@ -14,9 +14,18 @@ bool maiusculo(char * palavra)
 
     for(contador = 0; contador < tamanho_palavra; contador++)
     {
+        /*
+            PROCESSO DE VALIDAÇÃO
+
+            Essa parte vai verificar se as letras são todas maiusculas 
+            ou se possui algum espaço
+        */
         if(!isupper(palavra[contador]))
         {
-            return false;
+            if(palavra[contador] != ' ')
+            {
+                return false;
+            }
         }
     }
     return true;
@@ -37,9 +46,18 @@ bool minusculo(char * palavra)
 
     for(contador = 0; contador < tamanho_palavra; contador++)
     {
+        /*
+            PROCESSO DE VALIDAÇÃO
+
+            Essa parte vai verificar se as letras são todas minusculas 
+            ou se possui algum espaço
+        */
         if(!islower(palavra[contador]))
         {
-            return false;
+            if(palavra[contador] != ' ')
+            {
+                return false;
+            }
         }
     }
     return true;
