@@ -6,3 +6,4 @@
 
 bool minusculo(char * s);
 bool maiusculo(char * s);
+bool verificaCpf(char * cpf);

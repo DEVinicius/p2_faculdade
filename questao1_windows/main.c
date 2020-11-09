@@ -22,7 +22,7 @@ typedef struct func
  
  char nome[50];
  int id;
- long cpf;
+ char cpf [20];
  int dia;
  int mes;
  int ano;
@@ -66,7 +66,7 @@ int main(){
 				{
 					printf("Digite o nome do funcionario: ");
 					fflush(stdin); 
-					scanf("%[^\n]", dados[indice_vetor].nome);
+					fgets(dados[indice_vetor].nome, 49, stdin);
 					
 					if(maiusculo(dados[indice_vetor].nome))
 					{
@@ -112,7 +112,7 @@ int main(){
 				        while(dados[indice_vetor].dd > 100 || dados[indice_vetor].dd < 0 || dados[indice_vetor].tel < 900000000 || dados[indice_vetor].tel > 999999999);
 				 				 
 				printf("\nDigite o CPF: ");
-				scanf("%li", &dados[indice_vetor].cpf);
+				scanf("%s", dados[indice_vetor].cpf);
 				
 				/*FEATURE NÃO OBRIGATÓRIA
 
@@ -190,11 +190,8 @@ int main(){
 			else{
 				for(contador = 0; contador < indice_vetor; contador ++){
 						 printf("\nId\t\t\tNome\t\t\tTel.\t\t\tCPF\t\tData de nascimento\n");
-						 printf("\n%d\t\t%s\t\t(%d) %d\t\t %li\t\t\t %i/%i/%i\n", dados[contador].id, dados[contador].nome, dados[contador].dd, dados[contador].tel, dados[contador].cpf, dados[contador].dia, dados[contador].mes, dados[contador].ano);
-						 printf("\nNome: %s\n", dados[contador].nome);
-						 printf("\nTel. (%d) %d\n", dados[contador].dd, dados[contador].tel);
-						 printf("\nCPF: %li\n", dados[contador].cpf);
-						 printf("\nData de nascimento : %i/%i/%i\n\n\n\n", dados[contador].dia, dados[contador].mes, dados[contador].ano);
+						 printf("\n%d\t\t%s\t\t(%d) %d\t\t %s\t\t\t %i/%i/%i\n", dados[contador].id, dados[contador].nome, dados[contador].dd, dados[contador].tel, dados[contador].cpf, dados[contador].dia, dados[contador].mes, dados[contador].ano);
+						 
 				}
 				
 			}
