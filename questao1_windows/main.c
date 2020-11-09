@@ -111,8 +111,20 @@ int main(){
 				  }
 				        while(dados[indice_vetor].dd > 100 || dados[indice_vetor].dd < 0 || dados[indice_vetor].tel < 900000000 || dados[indice_vetor].tel > 999999999);
 				 				 
-				printf("\nDigite o CPF: ");
-				scanf("%s", dados[indice_vetor].cpf);
+
+				do{
+					printf("\nDigite o CPF: ");
+					scanf("%s", dados[indice_vetor].cpf);
+
+					if(verificaCpf(dados[indice_vetor].cpf == false)){
+						printf("CPF Invalido.\nSo aceitamos numeros\nDigite novamente\n\n ");
+					}
+					else
+					{
+						print("CPF Aceito\n\n\n");
+					}
+					
+				}while(verificaCpf(dados[indice_vetor].cpf == false));
 				
 				/*FEATURE NÃO OBRIGATÓRIA
 
