@@ -214,6 +214,10 @@ int main(){
 		case 3:
 			exit(0);
 			break;
+
+		default:
+			exit(0);
+			break;
 	 }
  }
  

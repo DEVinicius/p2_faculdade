@@ -31,12 +31,6 @@ typedef struct func
  int tel;
 } tFuncionario;
 
-void flush_in()
-{
-   int ch;
-
-   while( (ch = fgetc(stdin)) != EOF && ch != '\n' ){}
-}
 
 int main(){
 
@@ -210,6 +204,10 @@ int main(){
 			}
 			break;
 		case 3:
+			exit(0);
+			break;
+
+		default:
 			exit(0);
 			break;
 	 }
