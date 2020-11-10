@@ -77,6 +77,5 @@ bool verificaCpf (char * cpf)
 		}	
 	}
 	return true;
-	
 }
 
