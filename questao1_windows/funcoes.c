@@ -72,7 +72,7 @@ bool verificaCpf (char * cpf)
 	int tamanho_cpf = strlen(cpf) - 1;
 	int contador = 0;
 	for(contador = 0; contador < tamanho_cpf; contador ++ ){
-		if(cpf[contador] < 48 || cpf[contador] > 97 ){
+		if(cpf[contador] < 48 || cpf[contador] > 57 ){
 			return false;
 		}	
 	}
